@@ -73,17 +73,37 @@ public class AvroSchemaGenerator {
   }
   
   public void generateAvroSchema(final GenModel genModel, final IFileSystemAccess fileAccess) {
+    if ((genModel == null)) {
+      System.err.println("Cannot generate from a null model");
+      return;
+    }
+    if ((fileAccess == null)) {
+      System.err.println("Cannot generate null fileAccess");
+      return;
+    }
     EList<GenPackage> _genPackages = genModel.getGenPackages();
     for (final GenPackage genPackage : _genPackages) {
       {
-        Utility.setBasePackage(genPackage.getBasePackage());
+        String basePackage = genPackage.getBasePackage();
+        if ((basePackage == null)) {
+          basePackage = "";
+          Utility.setBasePackage("");
+        } else {
+          Utility.setBasePackage(basePackage);
+        }
         String _prefix = genPackage.getPrefix();
-        String _plus = (_prefix + "Factory");
-        Utility.setFactory(_plus);
+        boolean _tripleEquals = (_prefix == null);
+        if (_tripleEquals) {
+          System.err.println("Cannot generate null prefix");
+          return;
+        }
         String _prefix_1 = genPackage.getPrefix();
-        String _plus_1 = (_prefix_1 + "Package");
+        String _plus = (_prefix_1 + "Factory");
+        Utility.setFactory(_plus);
+        String _prefix_2 = genPackage.getPrefix();
+        String _plus_1 = (_prefix_2 + "Package");
         Utility.setPackage(_plus_1);
-        this.generateAvroSchema(genPackage.getEcorePackage(), genPackage.getBasePackage(), fileAccess);
+        this.generateAvroSchema(genPackage.getEcorePackage(), basePackage, fileAccess);
       }
     }
   }

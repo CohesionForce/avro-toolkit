@@ -123,6 +123,16 @@ public class GenerateFromGenModelHandler {
 		}
 
 		IResource sourceResource = workspaceRoot.findMember(genModel.getModelDirectory());
+		if(sourceResource == null)
+		{
+			System.err.println("Could not find model directory from genModel");
+			return;
+		}
+		
+		if(sourceResource.getLocationURI() == null)
+		{
+			System.err.println("Could not find location of genModel resource");
+		}
 		File locationFile = new File(sourceResource.getLocationURI());
 		IPath schemaDirPath = ifile.getFullPath().append("schema");
 		IResource schemaDirResource = workspaceRoot.findMember(schemaDirPath);

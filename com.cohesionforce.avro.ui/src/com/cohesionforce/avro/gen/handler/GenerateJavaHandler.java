@@ -16,7 +16,9 @@ import java.util.List;
 
 import javax.inject.Named;
 
-import org.apache.avro.tool.SpecificCompilerTool;
+import org.apache.avro.Schema;
+import org.apache.avro.compiler.specific.SpecificCompiler;
+import org.apache.avro.generic.GenericData.StringType;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
@@ -127,12 +129,21 @@ public class GenerateJavaHandler {
 			File locationFile) {
 		int rvalue = -1;
 		try {
-			SpecificCompilerTool tool = new SpecificCompilerTool();
-			List<String> args = new ArrayList<String>();
-			args.add("schema");
-			args.add(schemaFile.getAbsolutePath());
-			args.add(locationFile.getAbsolutePath());
-			rvalue = tool.run(System.in, System.out, System.err, args);
+			
+			// ClassLoader workaround for issue with Apache Velocity Engine in an OSGi Environment
+			final ClassLoader oldContextClassLoader = Thread.currentThread().getContextClassLoader();
+			Thread.currentThread().setContextClassLoader(GenerateJavaHandler.class.getClassLoader());
+				
+			Schema.Parser parser = new Schema.Parser();
+			Schema schema = parser.parse(schemaFile);
+			SpecificCompiler compiler = new SpecificCompiler(schema);
+			compiler.setStringType(StringType.CharSequence);
+			    
+			compiler.compileToDestination(schemaFile, locationFile);
+			    
+			// set back default class loader
+			Thread.currentThread().setContextClassLoader(oldContextClassLoader);
+			rvalue = 0;
 		} catch (Exception e) {
 			logger.error("Problem generating java code for {}",
 					schemaFile.getName());
