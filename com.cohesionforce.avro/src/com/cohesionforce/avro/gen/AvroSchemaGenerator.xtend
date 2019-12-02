@@ -65,12 +65,35 @@ class AvroSchemaGenerator {
 	}
 
 	def void generateAvroSchema(GenModel genModel, IFileSystemAccess fileAccess) {
+		if(genModel === null)
+		{
+			System.err.println('Cannot generate from a null model');
+			return;
+		}
+		if(fileAccess === null)
+		{
+			System.err.println('Cannot generate null fileAccess');
+			return;
+		}
 		for (GenPackage genPackage : genModel.getGenPackages()) {
-			Utility.setBasePackage(genPackage.basePackage);
+			var basePackage = genPackage.basePackage;
+			if(basePackage === null)
+			{
+				basePackage = '';
+				Utility.setBasePackage('');
+			}
+			else
+			{
+				Utility.setBasePackage(basePackage);
+			}
+			if(genPackage.prefix === null)
+			{
+				System.err.println('Cannot generate null prefix');
+				return;
+			}
 			Utility.setFactory(genPackage.getPrefix() + "Factory");
 			Utility.setPackage(genPackage.getPrefix() + "Package");
-
-			generateAvroSchema(genPackage.getEcorePackage(), genPackage.basePackage, fileAccess);
+			generateAvroSchema(genPackage.getEcorePackage(), basePackage, fileAccess);
 		}
 	}
 

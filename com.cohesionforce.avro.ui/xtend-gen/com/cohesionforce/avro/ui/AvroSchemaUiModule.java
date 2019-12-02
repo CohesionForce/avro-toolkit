@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class AvroSchemaUiModule extends AbstractAvroSchemaUiModule {
-  public AvroSchemaUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public AvroSchemaUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }
