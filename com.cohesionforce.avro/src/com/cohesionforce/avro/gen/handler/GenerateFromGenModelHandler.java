@@ -36,11 +36,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.cohesionforce.avro.gen.AvroSchemaGenerator;
+import com.cohesionforce.avro.gen.FileGenerator;
 import com.cohesionforce.avro.gen.GenerateAvroConverter;
 import com.cohesionforce.avro.gen.GenerateResourceFactory;
 import com.cohesionforce.avro.gen.Utility;
@@ -54,14 +54,6 @@ public class GenerateFromGenModelHandler {
 
 	private Logger logger = LoggerFactory.getLogger(GenerateFromGenModelHandler.class);
 
-	private Provider<EclipseResourceFileSystemAccess2> fileSystemAccessProvider;
-
-	public void setProvider(Provider<EclipseResourceFileSystemAccess2> provider)
-	{
-		logger.info("Setting File System Access provider");
-		fileSystemAccessProvider = provider;
-	}
-	
 	@Execute
 	public void execute() {
 
@@ -77,17 +69,6 @@ public class GenerateFromGenModelHandler {
 		IWorkspaceRoot workspaceRoot = workspace.getRoot();
 		IResource ifile = workspaceRoot.findMember(genModel.getModelPluginID());
 		
-//		OutputConfiguration defaultOutput = new OutputConfiguration(IFileSystemAccess.DEFAULT_OUTPUT);
-//		defaultOutput.setDescription("Output Folder");
-//		defaultOutput.setOutputDirectory("C:/Users/JLangley/files");
-//		defaultOutput.setOverrideExistingResources(true);
-//		defaultOutput.setCreateOutputDirectory(true);
-//		defaultOutput.setCleanUpDerivedResources(false);
-//		defaultOutput.setSetDerivedProperty(false);
-//		defaultOutput.setKeepLocalHistory(false);
-//		HashMap<String, OutputConfiguration> outputConfigurations = new HashMap<String, OutputConfiguration>();
-//		outputConfigurations.put(IFileSystemAccess.DEFAULT_OUTPUT, defaultOutput);
-		
 		IFolder srcGenFolder = project.getFolder("schema");
         if (!srcGenFolder.exists()) {
             try {
@@ -97,10 +78,10 @@ public class GenerateFromGenModelHandler {
             }
         }
         
-		EclipseResourceFileSystemAccess2 access = fileSystemAccessProvider.get();
-		access.setProject(project);
-		access.setOutputPath("schema");
-		access.setMonitor(new NullProgressMonitor()); 
+        FileGenerator fileGenerator = new FileGenerator();
+		fileGenerator.setProject(project);
+		fileGenerator.setOutputPath("schema");
+		fileGenerator.setMonitor(new NullProgressMonitor()); 
 		
 		if (ifile != null) {
 			java.net.URI fileURI = ifile.getLocationURI();
@@ -109,7 +90,7 @@ public class GenerateFromGenModelHandler {
 				// configure and start the generator
 
 				AvroSchemaGenerator generator = new AvroSchemaGenerator();
-				generator.generateAvroSchema(genModel, access);
+				generator.generateAvroSchema(genModel, fileGenerator);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -177,15 +158,15 @@ public class GenerateFromGenModelHandler {
 	            }
 	        }
 
-			access.setOutputPath(avroDir);
+	        fileGenerator.setOutputPath(avroDir);
 
 			GenerateAvroConverter generator;
 			generator = new GenerateAvroConverter();
-			generator.generateConverter(genPackage.getEcorePackage(), access);
+			generator.generateConverter(genPackage.getEcorePackage(), fileGenerator);
 
 			GenerateResourceFactory factoryGenerator;
 			factoryGenerator = new GenerateResourceFactory();
-			factoryGenerator.generateResourceFactory(genPackage.getEcorePackage(), access);
+			factoryGenerator.generateResourceFactory(genPackage.getEcorePackage(), fileGenerator);
 		}
 
 		// Final workspace refresh to make everything visible

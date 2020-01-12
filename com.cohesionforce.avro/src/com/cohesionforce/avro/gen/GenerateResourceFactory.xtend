@@ -10,11 +10,10 @@
  *******************************************************************************/
 package com.cohesionforce.avro.gen
 
-import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.emf.ecore.EPackage
 
 class GenerateResourceFactory {
-	def generateResourceFactory(EPackage anEPackage, IFileSystemAccess fsa) {
+	def generateResourceFactory(EPackage anEPackage, FileGenerator fsa) {
 
 		fsa.generateFile(
 			'AvroResourceFactory.java',

@@ -5,11 +5,10 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.generator.IFileSystemAccess
 
 class GenerateAvroConverter {
 
-	def generateConverter(EPackage anEPackage, IFileSystemAccess fsa) {
+	def generateConverter(EPackage anEPackage, FileGenerator fsa) {
 
 		var String basePackage = Utility.basePackage
 		var String avroPrefix = basePackage.concat('.avro.')

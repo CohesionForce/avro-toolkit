@@ -3,7 +3,6 @@
  */
 package com.cohesionforce.avro;
 
-import com.cohesionforce.avro.generator.AvroSchemaGenerator;
 import com.cohesionforce.avro.parser.antlr.AvroSchemaAntlrTokenFileProvider;
 import com.cohesionforce.avro.parser.antlr.AvroSchemaParser;
 import com.cohesionforce.avro.parser.antlr.internal.InternalAvroSchemaLexer;
@@ -193,9 +192,5 @@ public abstract class AbstractAvroSchemaRuntimeModule extends DefaultRuntimeModu
 		binder.bind(IResourceDescriptions.class).annotatedWith(Names.named(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS)).to(ResourceSetBasedResourceDescriptions.class);
 	}
 	
-	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
-	public Class<? extends IGenerator2> bindIGenerator2() {
-		return AvroSchemaGenerator.class;
-	}
 	
 }
