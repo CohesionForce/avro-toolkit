@@ -50,11 +50,6 @@ public class FileGenerator {
 			return;
 
 		if (file.exists()) {
-//			if (!content.markSupported()) {
-//				// The stream should be read only once
-//				byte[] bytes = ByteStreams.toByteArray(content);
-//				content = new ByteArrayInputStream(bytes);
-//			}
 			content.reset();
 			file.setContents(content, true, true, monitor);
 		} else {

@@ -9,9 +9,6 @@ import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.ui.PlatformUI;
 
-//import com.google.inject.Inject;
-//import com.google.inject.Provider;
-
 public class GenerateFromGenModelDIHandler extends AbstractHandler {
 
 	GenerateFromGenModelHandler handler;
