@@ -1,3 +1,4 @@
+package com.cohesionforce.avro.ecore;
 /*******************************************************************************
  * Copyright (c) 2014 Langley Studios
  * All rights reserved. This program and the accompanying materials
@@ -8,7 +9,7 @@
  * Contributors:
  *     Langley Studios - initial API and implementation
  *******************************************************************************/
-package com.cohesionforce.avro;
+
 
 import org.apache.avro.Schema;
 import org.eclipse.emf.ecore.EObject;

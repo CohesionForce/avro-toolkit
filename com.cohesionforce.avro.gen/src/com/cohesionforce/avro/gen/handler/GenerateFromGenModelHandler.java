@@ -44,7 +44,7 @@ import com.cohesionforce.avro.gen.FileGenerator;
 import com.cohesionforce.avro.gen.GenerateAvroConverter;
 import com.cohesionforce.avro.gen.GenerateResourceFactory;
 import com.cohesionforce.avro.gen.Utility;
-import com.google.inject.Provider;
+//import com.google.inject.Provider;
 
 public class GenerateFromGenModelHandler {
 

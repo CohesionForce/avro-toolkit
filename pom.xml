@@ -30,6 +30,9 @@
 		<module>com.cohesionforce.avro.repository</module>
 		<module>com.cohesionforce.avro.tests</module>
 		<module>com.cohesionforce.avro.ui.tests</module>
+		<module>com.cohesionforce.avro.base</module>
+		<module>com.cohesionforce.avro.gen</module>
+		<module>com.cohesionforce.avro.gen.feature</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

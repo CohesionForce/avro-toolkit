@@ -44,7 +44,7 @@ public class GenerateAvroConverter {
       _builder.append("import java.text.SimpleDateFormat;");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("import com.cohesionforce.avro.AvroEMFConverter;");
+      _builder.append("import com.cohesionforce.avro.ecore.AvroEMFConverter;");
       _builder.newLine();
       _builder.newLine();
       _builder.append("import org.apache.avro.Schema;");

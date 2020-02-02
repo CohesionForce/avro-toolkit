@@ -27,7 +27,7 @@ import java.util.Locale;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import com.cohesionforce.avro.AvroEMFConverter;
+import com.cohesionforce.avro.ecore.AvroEMFConverter;
 
 import org.apache.avro.Schema;
 

@@ -12,7 +12,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 
-import com.google.common.io.ByteStreams;
+//import com.google.common.io.ByteStreams;
 
 public class FileGenerator {
 
@@ -50,11 +50,11 @@ public class FileGenerator {
 			return;
 
 		if (file.exists()) {
-			if (!content.markSupported()) {
-				// The stream should be read only once
-				byte[] bytes = ByteStreams.toByteArray(content);
-				content = new ByteArrayInputStream(bytes);
-			}
+//			if (!content.markSupported()) {
+//				// The stream should be read only once
+//				byte[] bytes = ByteStreams.toByteArray(content);
+//				content = new ByteArrayInputStream(bytes);
+//			}
 			content.reset();
 			file.setContents(content, true, true, monitor);
 		} else {
