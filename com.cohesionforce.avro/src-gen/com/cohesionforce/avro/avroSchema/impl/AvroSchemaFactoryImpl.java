@@ -87,6 +87,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public AvroSchema createAvroSchema()
   {
     AvroSchemaImpl avroSchema = new AvroSchemaImpl();
@@ -98,6 +99,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public UnionType createUnionType()
   {
     UnionTypeImpl unionType = new UnionTypeImpl();
@@ -109,6 +111,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public UnionMember createUnionMember()
   {
     UnionMemberImpl unionMember = new UnionMemberImpl();
@@ -120,6 +123,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public JsonType createJsonType()
   {
     JsonTypeImpl jsonType = new JsonTypeImpl();
@@ -131,6 +135,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Record createRecord()
   {
     RecordImpl record = new RecordImpl();
@@ -142,6 +147,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FieldList createFieldList()
   {
     FieldListImpl fieldList = new FieldListImpl();
@@ -153,6 +159,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Field createField()
   {
     FieldImpl field = new FieldImpl();
@@ -164,6 +171,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EnumType createEnumType()
   {
     EnumTypeImpl enumType = new EnumTypeImpl();
@@ -175,6 +183,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ArrayType createArrayType()
   {
     ArrayTypeImpl arrayType = new ArrayTypeImpl();
@@ -186,6 +195,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public MapType createMapType()
   {
     MapTypeImpl mapType = new MapTypeImpl();
@@ -197,6 +207,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FixedType createFixedType()
   {
     FixedTypeImpl fixedType = new FixedTypeImpl();
@@ -208,6 +219,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Primitive createPrimitive()
   {
     PrimitiveImpl primitive = new PrimitiveImpl();
@@ -219,6 +231,7 @@ public class AvroSchemaFactoryImpl extends EFactoryImpl implements AvroSchemaFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public AvroSchemaPackage getAvroSchemaPackage()
   {
     return (AvroSchemaPackage)getEPackage();

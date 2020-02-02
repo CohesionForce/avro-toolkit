@@ -72,6 +72,7 @@ public class AvroSchemaImpl extends MinimalEObjectImpl.Container implements Avro
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EList<EObject> getTypes()
   {
     if (types == null)

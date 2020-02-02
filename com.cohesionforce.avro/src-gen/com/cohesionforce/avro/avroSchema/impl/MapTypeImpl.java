@@ -102,6 +102,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Primitive getPrimitive()
   {
     return primitive;
@@ -129,6 +130,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setPrimitive(Primitive newPrimitive)
   {
     if (newPrimitive != primitive)
@@ -150,6 +152,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Record getRecord()
   {
     return record;
@@ -177,6 +180,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setRecord(Record newRecord)
   {
     if (newRecord != record)
@@ -198,6 +202,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EnumType getEtype()
   {
     return etype;
@@ -225,6 +230,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setEtype(EnumType newEtype)
   {
     if (newEtype != etype)
@@ -246,6 +252,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ArrayType getAtype()
   {
     return atype;
@@ -273,6 +280,7 @@ public class MapTypeImpl extends UnionMemberImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setAtype(ArrayType newAtype)
   {
     if (newAtype != atype)

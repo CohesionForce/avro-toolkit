@@ -27,10 +27,6 @@ public interface Record extends UnionMember
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
@@ -53,10 +49,6 @@ public interface Record extends UnionMember
   /**
    * Returns the value of the '<em><b>Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Namespace</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Namespace</em>' attribute.
    * @see #setNamespace(String)
@@ -79,10 +71,6 @@ public interface Record extends UnionMember
   /**
    * Returns the value of the '<em><b>Field List</b></em>' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Field List</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Field List</em>' containment reference.
    * @see #setFieldList(FieldList)
