@@ -36,7 +36,8 @@ Export-Package: com.cohesionforce.avro,
  com.cohesionforce.avro.scoping,
  com.cohesionforce.avro.serializer,
  com.cohesionforce.avro.services,
- com.cohesionforce.avro.validation
+ com.cohesionforce.avro.validation,
+ com.cohesionforce.avro.generator
 Import-Package: com.google.inject,
  org.apache.log4j,
  org.eclipse.ui.dialogs
