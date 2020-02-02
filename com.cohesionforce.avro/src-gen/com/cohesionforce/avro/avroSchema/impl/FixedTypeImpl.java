@@ -94,7 +94,6 @@ public class FixedTypeImpl extends UnionMemberImpl implements FixedType
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -105,7 +104,6 @@ public class FixedTypeImpl extends UnionMemberImpl implements FixedType
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -119,7 +117,6 @@ public class FixedTypeImpl extends UnionMemberImpl implements FixedType
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public int getSize()
   {
     return size;
@@ -130,7 +127,6 @@ public class FixedTypeImpl extends UnionMemberImpl implements FixedType
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setSize(int newSize)
   {
     int oldSize = size;
@@ -225,7 +221,7 @@ public class FixedTypeImpl extends UnionMemberImpl implements FixedType
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(", size: ");

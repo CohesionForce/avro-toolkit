@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.cohesionforce.avro.gen.feature"
-      label="Feature"
+      label="Avro Schema Generator"
       version="1.0.0.qualifier"
-      provider-name="COHESIONFORCE">
+      provider-name="CohesionForce, Inc">
 
    <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+      The Avro Schema generator will generate Apache Avro schemas and an Ecore-&gt;Avro Resource that can be used to store EMF models in an Avro file.
    </description>
 
    <copyright url="http://www.example.com/copyright">

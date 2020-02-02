@@ -72,7 +72,6 @@ public class FieldListImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<Field> getFields()
   {
     if (fields == null)

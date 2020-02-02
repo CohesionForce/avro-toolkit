@@ -66,7 +66,6 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Record getRecordRef()
   {
     if (recordRef != null && recordRef.eIsProxy())
@@ -97,7 +96,6 @@ public class UnionMemberImpl extends MinimalEObjectImpl.Container implements Uni
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setRecordRef(Record newRecordRef)
   {
     Record oldRecordRef = recordRef;

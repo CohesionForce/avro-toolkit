@@ -67,7 +67,6 @@ public class JsonTypeImpl extends MinimalEObjectImpl.Container implements JsonTy
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Primitive getType()
   {
     return type;
@@ -95,7 +94,6 @@ public class JsonTypeImpl extends MinimalEObjectImpl.Container implements JsonTy
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setType(Primitive newType)
   {
     if (newType != type)

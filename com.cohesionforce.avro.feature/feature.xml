@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.cohesionforce.avro.feature"
-      label="AvroSchema Feature "
-      version="1.0.0.qualifier">
+      label="Apache Avro Schema Editor"
+      version="1.0.0.qualifier"
+      provider-name="CohesionForce, Inc">
+
+   <description>
+      The Apache Avro Schema Editor provides an Eclipse based editor for Apache Avro schemas.
+   </description>
 
    <plugin
          id="com.cohesionforce.avro"

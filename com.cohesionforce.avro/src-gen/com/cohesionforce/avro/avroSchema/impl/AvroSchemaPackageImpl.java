@@ -146,7 +146,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   *
+   * 
    * <p>This method is used to initialize {@link AvroSchemaPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -161,8 +161,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     if (isInited) return (AvroSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(AvroSchemaPackage.eNS_URI);
 
     // Obtain or create and register package
-    Object registeredAvroSchemaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-    AvroSchemaPackageImpl theAvroSchemaPackage = registeredAvroSchemaPackage instanceof AvroSchemaPackageImpl ? (AvroSchemaPackageImpl)registeredAvroSchemaPackage : new AvroSchemaPackageImpl();
+    AvroSchemaPackageImpl theAvroSchemaPackage = (AvroSchemaPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AvroSchemaPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AvroSchemaPackageImpl());
 
     isInited = true;
 
@@ -175,6 +174,7 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
     // Mark meta-data to indicate it can't be changed
     theAvroSchemaPackage.freeze();
 
+  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(AvroSchemaPackage.eNS_URI, theAvroSchemaPackage);
     return theAvroSchemaPackage;
@@ -185,7 +185,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getAvroSchema()
   {
     return avroSchemaEClass;
@@ -196,7 +195,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getAvroSchema_Types()
   {
     return (EReference)avroSchemaEClass.getEStructuralFeatures().get(0);
@@ -207,7 +205,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getUnionType()
   {
     return unionTypeEClass;
@@ -218,7 +215,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getUnionType_Types()
   {
     return (EReference)unionTypeEClass.getEStructuralFeatures().get(0);
@@ -229,7 +225,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getUnionMember()
   {
     return unionMemberEClass;
@@ -240,7 +235,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getUnionMember_RecordRef()
   {
     return (EReference)unionMemberEClass.getEStructuralFeatures().get(0);
@@ -251,7 +245,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getJsonType()
   {
     return jsonTypeEClass;
@@ -262,7 +255,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getJsonType_Type()
   {
     return (EReference)jsonTypeEClass.getEStructuralFeatures().get(0);
@@ -273,7 +265,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getRecord()
   {
     return recordEClass;
@@ -284,7 +275,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRecord_Name()
   {
     return (EAttribute)recordEClass.getEStructuralFeatures().get(0);
@@ -295,7 +285,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRecord_Namespace()
   {
     return (EAttribute)recordEClass.getEStructuralFeatures().get(1);
@@ -306,7 +295,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getRecord_FieldList()
   {
     return (EReference)recordEClass.getEStructuralFeatures().get(2);
@@ -317,7 +305,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getFieldList()
   {
     return fieldListEClass;
@@ -328,7 +315,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getFieldList_Fields()
   {
     return (EReference)fieldListEClass.getEStructuralFeatures().get(0);
@@ -339,7 +325,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getField()
   {
     return fieldEClass;
@@ -350,7 +335,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getField_Name()
   {
     return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
@@ -361,7 +345,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Primitive()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(1);
@@ -372,7 +355,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Record()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(2);
@@ -383,7 +365,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_RecordRef()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(3);
@@ -394,7 +375,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Etype()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(4);
@@ -405,7 +385,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Array()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(5);
@@ -416,7 +395,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Map()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(6);
@@ -427,7 +405,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Fixed()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(7);
@@ -438,7 +415,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getField_Union()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(8);
@@ -449,7 +425,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getEnumType()
   {
     return enumTypeEClass;
@@ -460,7 +435,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getEnumType_Name()
   {
     return (EAttribute)enumTypeEClass.getEStructuralFeatures().get(0);
@@ -471,7 +445,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getEnumType_Symbols()
   {
     return (EAttribute)enumTypeEClass.getEStructuralFeatures().get(1);
@@ -482,7 +455,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getArrayType()
   {
     return arrayTypeEClass;
@@ -493,7 +465,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getArrayType_Primitive()
   {
     return (EReference)arrayTypeEClass.getEStructuralFeatures().get(0);
@@ -504,7 +475,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getArrayType_Record()
   {
     return (EReference)arrayTypeEClass.getEStructuralFeatures().get(1);
@@ -515,7 +485,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getArrayType_Etype()
   {
     return (EReference)arrayTypeEClass.getEStructuralFeatures().get(2);
@@ -526,7 +495,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getMapType()
   {
     return mapTypeEClass;
@@ -537,7 +505,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getMapType_Primitive()
   {
     return (EReference)mapTypeEClass.getEStructuralFeatures().get(0);
@@ -548,7 +515,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getMapType_Record()
   {
     return (EReference)mapTypeEClass.getEStructuralFeatures().get(1);
@@ -559,7 +525,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getMapType_Etype()
   {
     return (EReference)mapTypeEClass.getEStructuralFeatures().get(2);
@@ -570,7 +535,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getMapType_Atype()
   {
     return (EReference)mapTypeEClass.getEStructuralFeatures().get(3);
@@ -581,7 +545,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getFixedType()
   {
     return fixedTypeEClass;
@@ -592,7 +555,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getFixedType_Name()
   {
     return (EAttribute)fixedTypeEClass.getEStructuralFeatures().get(0);
@@ -603,7 +565,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getFixedType_Size()
   {
     return (EAttribute)fixedTypeEClass.getEStructuralFeatures().get(1);
@@ -614,7 +575,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getPrimitive()
   {
     return primitiveEClass;
@@ -625,7 +585,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getPrimitive_Type()
   {
     return (EAttribute)primitiveEClass.getEStructuralFeatures().get(0);
@@ -636,7 +595,6 @@ public class AvroSchemaPackageImpl extends EPackageImpl implements AvroSchemaPac
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public AvroSchemaFactory getAvroSchemaFactory()
   {
     return (AvroSchemaFactory)getEFactoryInstance();

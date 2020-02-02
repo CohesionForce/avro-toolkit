@@ -3,15 +3,23 @@
    <feature id="com.cohesionforce.avro.feature" version="0.0.0">
       <category name="main"/>
    </feature>
-   <feature id="com.cohesionforce.avro.feature.source" version="0.0.0">
+   <feature id="com.cohesionforce.avro.feature.source">
       <category name="main.source"/>
    </feature>
    <feature id="com.cohesionforce.avro.gen.feature">
       <category name="main"/>
    </feature>
    <feature id="com.cohesionforce.avro.gen.feature.source">
-      <category name="main"/>
+      <category name="main.source"/>
    </feature>
-   <category-def name="main" label="AvroSchema"/>
-   <category-def name="main.source" label="AvroSchema (Sources)"/>
+   <category-def name="main" label="Apache Avro Toolkit">
+      <description>
+         Provides code generation based on an EMF Generator model and an Eclipse based editor for Apache Avro schemas.
+      </description>
+   </category-def>
+   <category-def name="main.source" label="Apache Avro Toolkit (Sources)">
+      <description>
+         Source code bundles for the Apache Avro Toolkit.
+      </description>
+   </category-def>
 </site>

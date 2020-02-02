@@ -108,7 +108,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -119,7 +118,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -133,7 +131,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getNamespace()
   {
     return namespace;
@@ -144,7 +141,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setNamespace(String newNamespace)
   {
     String oldNamespace = namespace;
@@ -158,7 +154,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public FieldList getFieldList()
   {
     return fieldList;
@@ -186,7 +181,6 @@ public class RecordImpl extends UnionMemberImpl implements Record
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setFieldList(FieldList newFieldList)
   {
     if (newFieldList != fieldList)
@@ -315,7 +309,7 @@ public class RecordImpl extends UnionMemberImpl implements Record
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(", namespace: ");

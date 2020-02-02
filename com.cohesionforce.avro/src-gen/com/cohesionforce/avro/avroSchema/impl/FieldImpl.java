@@ -171,7 +171,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getName()
   {
     return name;
@@ -182,7 +181,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setName(String newName)
   {
     String oldName = name;
@@ -196,7 +194,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Primitive getPrimitive()
   {
     return primitive;
@@ -224,7 +221,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setPrimitive(Primitive newPrimitive)
   {
     if (newPrimitive != primitive)
@@ -246,7 +242,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Record getRecord()
   {
     return record;
@@ -274,7 +269,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setRecord(Record newRecord)
   {
     if (newRecord != record)
@@ -296,7 +290,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Record getRecordRef()
   {
     if (recordRef != null && recordRef.eIsProxy())
@@ -327,7 +320,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setRecordRef(Record newRecordRef)
   {
     Record oldRecordRef = recordRef;
@@ -341,7 +333,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EnumType getEtype()
   {
     return etype;
@@ -369,7 +360,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setEtype(EnumType newEtype)
   {
     if (newEtype != etype)
@@ -391,7 +381,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public ArrayType getArray()
   {
     return array;
@@ -419,7 +408,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setArray(ArrayType newArray)
   {
     if (newArray != array)
@@ -441,7 +429,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public MapType getMap()
   {
     return map;
@@ -469,7 +456,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setMap(MapType newMap)
   {
     if (newMap != map)
@@ -491,7 +477,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public FixedType getFixed()
   {
     return fixed;
@@ -519,7 +504,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setFixed(FixedType newFixed)
   {
     if (newFixed != fixed)
@@ -541,7 +525,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public UnionType getUnion()
   {
     return union;
@@ -569,7 +552,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setUnion(UnionType newUnion)
   {
     if (newUnion != union)
@@ -771,7 +753,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
     result.append(')');

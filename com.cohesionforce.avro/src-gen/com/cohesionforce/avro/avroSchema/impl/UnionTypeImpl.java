@@ -72,7 +72,6 @@ public class UnionTypeImpl extends MinimalEObjectImpl.Container implements Union
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<UnionMember> getTypes()
   {
     if (types == null)

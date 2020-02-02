@@ -34,6 +34,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
@@ -56,6 +60,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Primitive</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Primitive</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Primitive</em>' containment reference.
    * @see #setPrimitive(Primitive)
@@ -78,6 +86,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Record</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Record</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record</em>' containment reference.
    * @see #setRecord(Record)
@@ -100,6 +112,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Record Ref</b></em>' reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Record Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record Ref</em>' reference.
    * @see #setRecordRef(Record)
@@ -122,6 +138,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Etype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Etype</em>' containment reference.
    * @see #setEtype(EnumType)
@@ -144,6 +164,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Array</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Array</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Array</em>' containment reference.
    * @see #setArray(ArrayType)
@@ -166,6 +190,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Map</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Map</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Map</em>' containment reference.
    * @see #setMap(MapType)
@@ -188,6 +216,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Fixed</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fixed</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fixed</em>' containment reference.
    * @see #setFixed(FixedType)
@@ -210,6 +242,10 @@ public interface Field extends EObject
   /**
    * Returns the value of the '<em><b>Union</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Union</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Union</em>' containment reference.
    * @see #setUnion(UnionType)

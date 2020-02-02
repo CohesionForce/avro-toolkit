@@ -27,6 +27,10 @@ public interface ArrayType extends UnionMember
   /**
    * Returns the value of the '<em><b>Primitive</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Primitive</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Primitive</em>' containment reference.
    * @see #setPrimitive(Primitive)
@@ -49,6 +53,10 @@ public interface ArrayType extends UnionMember
   /**
    * Returns the value of the '<em><b>Record</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Record</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Record</em>' containment reference.
    * @see #setRecord(Record)
@@ -71,6 +79,10 @@ public interface ArrayType extends UnionMember
   /**
    * Returns the value of the '<em><b>Etype</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Etype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Etype</em>' containment reference.
    * @see #setEtype(EnumType)
