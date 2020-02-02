@@ -7,7 +7,7 @@
 		<artifactId>com.cohesionforce.avro.parent</artifactId>
 	</parent>
 	
-	<version>1.0.0.qualifier</version>
+	<version>1.0.0-SNAPSHOT</version>
 	
 	<artifactId>com.cohesionforce.avro.target</artifactId>
 	<packaging>eclipse-target-definition</packaging>
