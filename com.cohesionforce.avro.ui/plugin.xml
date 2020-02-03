@@ -13,62 +13,6 @@
 		</editor>
 	</extension>
 	<extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="com.cohesionforce.avro.gen.handler.GenerateJavaDIHandler"
-            id="com.cohesionforce.command.generateJava"
-            name="Generate Java">
-      </command>
-      <command
-            defaultHandler="com.cohesionforce.avro.ui.AvroSchemaExecutableExtensionFactory:com.cohesionforce.avro.gen.handler.GenerateFromGenModelDIHandler"
-            id="com.cohesionforce.command.generateAvro2"
-            name="Generate From Genmodel">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-         <command
-               commandId="com.cohesionforce.command.generateJava"
-               label="Generate Java"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="selection">
-                  <iterate
-                        ifEmpty="false">
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="avsc">
-                     </test>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="com.cohesionforce.command.generateAvro2"
-               label="Generate From GenModel"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="selection">
-                  <iterate
-                        ifEmpty="false">
-                     <test
-                           property="org.eclipse.core.resources.extension"
-                           value="genmodel">
-                     </test>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-      </menuContribution>
-   </extension>
-	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
 			class="com.cohesionforce.avro.ui.AvroSchemaExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"

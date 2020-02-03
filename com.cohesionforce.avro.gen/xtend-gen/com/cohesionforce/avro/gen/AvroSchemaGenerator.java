@@ -10,6 +10,7 @@
  */
 package com.cohesionforce.avro.gen;
 
+import com.cohesionforce.avro.gen.FileGenerator;
 import com.cohesionforce.avro.gen.Utility;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.generator.IFileSystemAccess;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -40,8 +41,6 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
  */
 @SuppressWarnings("all")
 public class AvroSchemaGenerator {
-  private IFileSystemAccess fileAccess;
-  
   private List<EClass> classes = new ArrayList<EClass>();
   
   private List<EEnum> enums = new ArrayList<EEnum>();
@@ -72,7 +71,7 @@ public class AvroSchemaGenerator {
     return true;
   }
   
-  public void generateAvroSchema(final GenModel genModel, final IFileSystemAccess fileAccess) {
+  public void generateAvroSchema(final GenModel genModel, final FileGenerator fileAccess) {
     if ((genModel == null)) {
       System.err.println("Cannot generate from a null model");
       return;
@@ -108,7 +107,7 @@ public class AvroSchemaGenerator {
     }
   }
   
-  public void generateAvroSchema(final Resource resource, final String basePath, final IFileSystemAccess fileAccess) {
+  public void generateAvroSchema(final Resource resource, final String basePath, final FileGenerator fileAccess) {
     Iterable<EPackage> _filter = Iterables.<EPackage>filter(resource.getContents(), EPackage.class);
     for (final EPackage epackage : _filter) {
       this.generateAvroSchema(epackage, basePath, fileAccess);
@@ -118,7 +117,7 @@ public class AvroSchemaGenerator {
   /**
    * Generates an Avro Schema file for each class in a package.
    */
-  public void generateAvroSchema(final EPackage anEPackage, final String basePath, final IFileSystemAccess fsa) {
+  public void generateAvroSchema(final EPackage anEPackage, final String basePath, final FileGenerator fsa) {
     Iterable<EClass> _filter = Iterables.<EClass>filter(anEPackage.getEClassifiers(), EClass.class);
     for (final EClass eclass : _filter) {
       this.generateSchema(eclass, basePath.concat(".").concat(anEPackage.getName()), fsa);
@@ -132,72 +131,76 @@ public class AvroSchemaGenerator {
   /**
    * Generates an Avro Schema file for an EClass.
    */
-  public void generateSchema(final EClass anEClass, final String basePackage, final IFileSystemAccess fsa) {
-    this.classes.clear();
-    this.enums.clear();
-    this.classes.add(anEClass);
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.newLine();
-    _builder.append("{\"type\":\"record\",\"name\":\"");
-    String _name = anEClass.getName();
-    _builder.append(_name);
-    _builder.append("\",\"namespace\":\"");
-    String _concat = basePackage.concat(".avro");
-    _builder.append(_concat);
-    _builder.append("\",\"fields\":[");
-    _builder.newLineIfNotEmpty();
-    {
-      boolean _endsWith = anEClass.getName().endsWith("Pdu");
-      if (_endsWith) {
-        _builder.append("\t");
-        _builder.append("{\"name\":\"reception_timestamp\",\"type\":[\"null\",");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("{\"type\":\"record\",\"name\":\"Time_t\",\"fields\":[");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t\t");
-        _builder.append("{\"name\":\"sec\",\"type\":\"int\"},");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t\t");
-        _builder.append("{\"name\":\"nanosec\",\"type\":\"int\"}");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("]}]},");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("{\"name\":\"source_timestamp\",\"type\":[\"null\",\"Time_t\"]},");
-        _builder.newLine();
-      }
-    }
-    {
-      final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature feature) -> {
-        String _name_1 = feature.getEType().getName();
-        return Boolean.valueOf((!Objects.equal(_name_1, "EFeatureMapEntry")));
-      };
-      Iterable<EStructuralFeature> _filter = IterableExtensions.<EStructuralFeature>filter(anEClass.getEAllStructuralFeatures(), _function);
-      boolean _hasElements = false;
-      for(final EStructuralFeature aFeature : _filter) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",", "\t");
+  public void generateSchema(final EClass anEClass, final String basePackage, final FileGenerator fsa) {
+    try {
+      this.classes.clear();
+      this.enums.clear();
+      this.classes.add(anEClass);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.newLine();
+      _builder.append("{\"type\":\"record\",\"name\":\"");
+      String _name = anEClass.getName();
+      _builder.append(_name);
+      _builder.append("\",\"namespace\":\"");
+      String _concat = basePackage.concat(".avro");
+      _builder.append(_concat);
+      _builder.append("\",\"fields\":[");
+      _builder.newLineIfNotEmpty();
+      {
+        boolean _endsWith = anEClass.getName().endsWith("Pdu");
+        if (_endsWith) {
+          _builder.append("\t");
+          _builder.append("{\"name\":\"reception_timestamp\",\"type\":[\"null\",");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("\t");
+          _builder.append("{\"type\":\"record\",\"name\":\"Time_t\",\"fields\":[");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("\t\t");
+          _builder.append("{\"name\":\"sec\",\"type\":\"int\"},");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("\t\t");
+          _builder.append("{\"name\":\"nanosec\",\"type\":\"int\"}");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("\t");
+          _builder.append("]}]},");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("{\"name\":\"source_timestamp\",\"type\":[\"null\",\"Time_t\"]},");
+          _builder.newLine();
         }
-        _builder.append("\t");
-        CharSequence _generateFeature = this.generateFeature(aFeature);
-        _builder.append(_generateFeature, "\t");
-        _builder.newLineIfNotEmpty();
       }
+      {
+        final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature feature) -> {
+          String _name_1 = feature.getEType().getName();
+          return Boolean.valueOf((!Objects.equal(_name_1, "EFeatureMapEntry")));
+        };
+        Iterable<EStructuralFeature> _filter = IterableExtensions.<EStructuralFeature>filter(anEClass.getEAllStructuralFeatures(), _function);
+        boolean _hasElements = false;
+        for(final EStructuralFeature aFeature : _filter) {
+          if (!_hasElements) {
+            _hasElements = true;
+          } else {
+            _builder.appendImmediate(",", "\t");
+          }
+          _builder.append("\t");
+          CharSequence _generateFeature = this.generateFeature(aFeature);
+          _builder.append(_generateFeature, "\t");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("]}");
+      _builder.newLine();
+      String contents = _builder.toString();
+      String _name_1 = anEClass.getName();
+      String _plus = (_name_1 + ".avsc");
+      fsa.generateFile(_plus, contents);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    _builder.append("]}");
-    _builder.newLine();
-    String contents = _builder.toString();
-    String _name_1 = anEClass.getName();
-    String _plus = (_name_1 + ".avsc");
-    fsa.generateFile(_plus, contents);
   }
   
   /**

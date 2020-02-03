@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Base
+Bundle-SymbolicName: com.cohesionforce.avro.base
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: COHESIONFORCE
+Automatic-Module-Name: com.cohesionforce.avro.base
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.cohesionforce.apache.avro;bundle-version="1.7.6",
+ org.eclipse.emf.ecore;bundle-version="2.19.0"
+Export-Package: com.cohesionforce.avro.ecore

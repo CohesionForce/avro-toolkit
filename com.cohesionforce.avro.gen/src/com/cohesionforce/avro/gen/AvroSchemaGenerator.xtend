@@ -20,10 +20,8 @@ import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
-import org.eclipse.xtext.generator.IFileSystemAccess2
 
 /**
  * The AvroSchemaGenerator generates Avro Schemas for classes defined in
@@ -31,8 +29,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
  *  for logging.
  */
 class AvroSchemaGenerator {
-
-	var IFileSystemAccess  fileAccess;
 
 	// List of Classes already visited for a given parent Class.
 	var List<EClass> classes = new ArrayList<EClass>();
@@ -64,7 +60,7 @@ class AvroSchemaGenerator {
 		return true
 	}
 
-	def void generateAvroSchema(GenModel genModel, IFileSystemAccess fileAccess) {
+	def void generateAvroSchema(GenModel genModel, FileGenerator fileAccess) {
 		if(genModel === null)
 		{
 			System.err.println('Cannot generate from a null model');
@@ -97,7 +93,7 @@ class AvroSchemaGenerator {
 		}
 	}
 
-	def void generateAvroSchema(Resource resource, String basePath, IFileSystemAccess fileAccess) {
+	def void generateAvroSchema(Resource resource, String basePath, FileGenerator fileAccess) {
 		// The rest of the generators need to run against each package in the resource
 		for (EPackage epackage : resource.contents.filter(typeof(EPackage))) {
 			generateAvroSchema(epackage, basePath, fileAccess)
@@ -107,7 +103,7 @@ class AvroSchemaGenerator {
 	/**
 	 * Generates an Avro Schema file for each class in a package.
 	 */
-	def void generateAvroSchema(EPackage anEPackage, String basePath, IFileSystemAccess fsa) {
+	def void generateAvroSchema(EPackage anEPackage, String basePath, FileGenerator fsa) {
 		for (eclass : anEPackage.EClassifiers.filter(typeof(EClass))) {
 			generateSchema(eclass, basePath.concat('.').concat(anEPackage.name), fsa)
 		}
@@ -119,7 +115,7 @@ class AvroSchemaGenerator {
 	/**
 	 * Generates an Avro Schema file for an EClass.
 	 */
-	def generateSchema(EClass anEClass, String basePackage, IFileSystemAccess fsa) {
+	def generateSchema(EClass anEClass, String basePackage, FileGenerator fsa) {
 
 		classes.clear;
 		enums.clear;
