@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.cohesionforce.avro.gen.feature"
+      label="Avro Schema Generator"
+      version="1.0.0.qualifier"
+      provider-name="CohesionForce, Inc">
+
+   <description url="http://www.example.com/description">
+      The Avro Schema generator will generate Apache Avro schemas and an Ecore-&gt;Avro Resource that can be used to store EMF models in an Avro file.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="com.cohesionforce.avro.gen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.cohesionforce.apache.avro"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.cohesionforce.avro.base"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -7,4 +7,5 @@
 			class = "com.cohesionforce.avro.avroSchema.AvroSchemaPackage"
 			genModel = "model/generated/AvroSchema.genmodel" />
 	</extension>
+
 </plugin>

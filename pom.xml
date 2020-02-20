@@ -30,6 +30,9 @@
 		<module>com.cohesionforce.avro.repository</module>
 		<module>com.cohesionforce.avro.tests</module>
 		<module>com.cohesionforce.avro.ui.tests</module>
+		<module>com.cohesionforce.avro.base</module>
+		<module>com.cohesionforce.avro.gen</module>
+		<module>com.cohesionforce.avro.gen.feature</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -106,7 +109,7 @@
 							<groupId>com.cohesionforce.avro</groupId>
 							<artifactId>com.cohesionforce.avro.target</artifactId>
 							<version>1.0.0-SNAPSHOT</version>
-							<relativePath>../com.cohesionforce.avro.target/pom.xml</relativePath>
+							<relativePath>com.cohesionforce.avro.target/pom.xml</relativePath>
 						</artifact>
 					</target>
 					<environments>
